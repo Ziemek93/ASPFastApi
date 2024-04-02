@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Faker.Net" Version="2.0.163" />
+    <PackageReference Include="Faker" Version="1.2.0" />
+        <PackageReference Include="FastEndpoints" Version="5.23.0"/>
+        <PackageReference Include="FastEndpoints.Generator" Version="5.23.0" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="FastEndpoints.Security" Version="5.23.0"/>
+        <PackageReference Include="FastEndpoints.Swagger" Version="5.23.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.2.24128.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0-preview.2.24128.4" />
+        <PackageReference Include="MongoDB.Entities" Version="23.0.1"/>
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Entities\" />
+      <Folder Include="Features\Public\AddArticle\" />
+      <Folder Include="Features\Public\GetArticles\" />
+    </ItemGroup>
+</Project>
