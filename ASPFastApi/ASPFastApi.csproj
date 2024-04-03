@@ -20,6 +20,5 @@
     <ItemGroup>
       <Folder Include="Entities\" />
       <Folder Include="Features\Public\AddArticle\" />
-      <Folder Include="Features\Public\GetArticles\" />
     </ItemGroup>
 </Project>
