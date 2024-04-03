@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASPFastApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5dcb21123d8830f5c184944023297c0c42a1d73f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+990445d4363086559390c2af6f151cd6a021e35e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASPFastApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASPFastApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

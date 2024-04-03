@@ -1,8 +1,21 @@
-﻿namespace ASPFastApi.Features.Public.GetArticles;
+﻿using FastApi.Entity;
 
-public class ArticleModel
+namespace ASPFastApi.Features.Public.GetArticles;
+
+public class Request
 {
     public string ArticleName { get; set; } = null!;
     public string? ArticleDescription { get; set; }
     public bool Visibility { get; set; }
+}
+
+public class Response
+{
+    public string ArticleName { get; set; } = null!;
+    public string? ArticleDescription { get; set; }
+    public bool Visibility { get; set; }
+    
+    public virtual ICollection<Comment> Comments { get; set; }
+    
+    
 }
