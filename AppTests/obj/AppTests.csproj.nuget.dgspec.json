@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\AppTests.csproj": {}
+    "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\AppTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\AppTests.csproj": {
+    "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\AppTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\AppTests.csproj",
+        "projectUniqueName": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\AppTests.csproj",
         "projectName": "AppTests",
-        "projectPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\AppTests.csproj",
+        "projectPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\AppTests.csproj",
         "packagesPath": "C:\\Users\\macie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\obj\\",
+        "outputPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj": {
-                "projectPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj"
+              "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj": {
+                "projectPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj"
               }
             }
           }
@@ -52,6 +52,10 @@
             "FastEndpoints.Testing": {
               "target": "Package",
               "version": "[5.24.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.12.0, )"
             },
             "FluentValidation": {
               "target": "Package",
@@ -90,18 +94,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj": {
+    "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj",
+        "projectUniqueName": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj",
         "projectName": "ASPFastApi",
-        "projectPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj",
+        "projectPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj",
         "packagesPath": "C:\\Users\\macie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\obj\\",
+        "outputPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -201,7 +205,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

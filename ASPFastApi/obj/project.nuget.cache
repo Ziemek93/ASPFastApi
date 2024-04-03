@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HBP89jhNRxtqndgwTIJlOnfEavF7cG8IZVSuga8+Px/FFjc/93zqCfbS9JLquF8Kzxi2qWZPDj05lR1eLxRAvw==",
+  "dgSpecHash": "ICF2N3R1/m7tQ8za4C2WA/Vk61bV7gW7gg0KDinBRy+T8VJC379qLp7vLd+JdDVPswCHAhBbE1uagkR5zuAkfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj",
+  "projectFilePath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\macie\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

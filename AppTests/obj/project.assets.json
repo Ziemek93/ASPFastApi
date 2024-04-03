@@ -249,6 +249,22 @@
           }
         }
       },
+      "FluentAssertions/6.12.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.4.0"
+        },
+        "compile": {
+          "lib/net6.0/FluentAssertions.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentAssertions.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "FluentValidation/11.9.0": {
         "type": "package",
         "compile": {
@@ -2017,7 +2033,7 @@
           "System.Security.Cryptography.ProtectedData": "8.0.0"
         },
         "compile": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/System.Configuration.ConfigurationManager.dll": {
             "related": ".xml"
           }
         },
@@ -2856,6 +2872,36 @@
         "lib/net7.0/FastEndpoints.Testing.xml",
         "lib/net8.0/FastEndpoints.Testing.dll",
         "lib/net8.0/FastEndpoints.Testing.xml"
+      ]
+    },
+    "FluentAssertions/6.12.0": {
+      "sha512": "ZXhHT2YwP9lajrwSKbLlFqsmCCvFJMoRSK9t7sImfnCyd0OB3MhgxdoMcVqxbq1iyxD6mD2fiackWmBb7ayiXQ==",
+      "type": "package",
+      "path": "fluentassertions/6.12.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "FluentAssertions.png",
+        "fluentassertions.6.12.0.nupkg.sha512",
+        "fluentassertions.nuspec",
+        "lib/net47/FluentAssertions.dll",
+        "lib/net47/FluentAssertions.pdb",
+        "lib/net47/FluentAssertions.xml",
+        "lib/net6.0/FluentAssertions.dll",
+        "lib/net6.0/FluentAssertions.pdb",
+        "lib/net6.0/FluentAssertions.xml",
+        "lib/netcoreapp2.1/FluentAssertions.dll",
+        "lib/netcoreapp2.1/FluentAssertions.pdb",
+        "lib/netcoreapp2.1/FluentAssertions.xml",
+        "lib/netcoreapp3.0/FluentAssertions.dll",
+        "lib/netcoreapp3.0/FluentAssertions.pdb",
+        "lib/netcoreapp3.0/FluentAssertions.xml",
+        "lib/netstandard2.0/FluentAssertions.dll",
+        "lib/netstandard2.0/FluentAssertions.pdb",
+        "lib/netstandard2.0/FluentAssertions.xml",
+        "lib/netstandard2.1/FluentAssertions.dll",
+        "lib/netstandard2.1/FluentAssertions.pdb",
+        "lib/netstandard2.1/FluentAssertions.xml"
       ]
     },
     "FluentValidation/11.9.0": {
@@ -6361,6 +6407,7 @@
     "net8.0": [
       "ASPFastApi >= 1.0.0",
       "FastEndpoints.Testing >= 5.24.0",
+      "FluentAssertions >= 6.12.0",
       "FluentValidation >= 11.9.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "coverlet.collector >= 6.0.0",
@@ -6375,11 +6422,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\AppTests.csproj",
+      "projectUniqueName": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\AppTests.csproj",
       "projectName": "AppTests",
-      "projectPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\AppTests.csproj",
+      "projectPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\AppTests.csproj",
       "packagesPath": "C:\\Users\\macie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\AppTests\\obj\\",
+      "outputPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\AppTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6401,8 +6448,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj": {
-              "projectPath": "C:\\Users\\macie\\RiderProjects\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj"
+            "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj": {
+              "projectPath": "C:\\Users\\macie\\source\\repos\\ASPFastApi\\ASPFastApi\\ASPFastApi\\ASPFastApi.csproj"
             }
           }
         }
@@ -6420,6 +6467,10 @@
           "FastEndpoints.Testing": {
             "target": "Package",
             "version": "[5.24.0, )"
+          },
+          "FluentAssertions": {
+            "target": "Package",
+            "version": "[6.12.0, )"
           },
           "FluentValidation": {
             "target": "Package",
@@ -6458,7 +6509,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
