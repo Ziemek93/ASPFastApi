@@ -1,16 +1,30 @@
+using FastApi.Context;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
-var conntectionString = builder.Configuration.GetConnectionString("BlogConnection");
-builder.Services.AddScoped<FastApi.Context.AppContext>();
+using System;
 
-builder.Services
-    .AddFastEndpoints()
-    .SwaggerDocument();
-builder.Services.AddDbContext<FastApi.Context.AppContext>(options => options.UseSqlServer(conntectionString));
+public class Program // Now public for easier accessibility
+{
+    static void Main(string[] args)
+    {
+        
+        var builder = WebApplication.CreateBuilder(args);
+        var conntectionString = builder.Configuration.GetConnectionString("BlogConnection");
+        builder.Services.AddScoped<ApplicationContext>();
 
-var app = builder.Build();
+        builder.Services
+            .AddFastEndpoints()
+            .SwaggerDocument();
+        builder.Services.AddDbContext<FastApi.Context.ApplicationContext>(options => options.UseSqlServer(conntectionString));
 
-app.Run();
+        var app = builder.Build();
+        app.UseFastEndpoints(c => {
+            // everything is anonymous for this sample
+            c.Endpoints.Configurator = epd => epd.AllowAnonymous();
+        }).UseSwaggerGen();
+
+        app.Run();
+    }
+}
