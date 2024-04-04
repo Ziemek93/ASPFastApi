@@ -18,7 +18,7 @@ namespace AppTests
             var (rsp, res) = await app.Client.GETAsync<GetArticles.Endpoint, IEnumerable<GetArticles.Response>>();
 
             rsp.StatusCode.Should().Be(HttpStatusCode.OK);
-            //res.Select(a => a.ArticleName).Should().Equal(App.ArticleName);
+            //res.Select(a => a.ArticleName).Should().Equal(App.ArticleName);test
             
 
         }
