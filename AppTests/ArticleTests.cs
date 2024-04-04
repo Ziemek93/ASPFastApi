@@ -14,7 +14,7 @@ namespace AppTests
             // var (prsp, pres) = await app.Client.POSTAsync<GetArticles.Endpoint, GetArticles.Request, ErrorResponse>(new()
             // {
             // });
-            
+             
             var (rsp, res) = await app.Client.GETAsync<GetArticles.Endpoint, IEnumerable<GetArticles.Response>>();
 
             rsp.StatusCode.Should().Be(HttpStatusCode.OK);
