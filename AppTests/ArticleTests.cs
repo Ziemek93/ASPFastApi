@@ -9,7 +9,7 @@ namespace AppTests
     public class ArticleTests(App app) : TestBase<App>
     {
         [Fact]
-        public async Task Invalid_User_Input()
+        public async Task GetResultCode200()
         {
             // var (prsp, pres) = await app.Client.POSTAsync<GetArticles.Endpoint, GetArticles.Request, ErrorResponse>(new()
             // {
