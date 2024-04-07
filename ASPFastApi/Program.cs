@@ -17,11 +17,12 @@ public class Program // Now public for easier accessibility
         builder.Services
             .AddFastEndpoints()
             .SwaggerDocument();
-        builder.Services.AddDbContext<FastApi.Context.ApplicationContext>(options => options.UseSqlServer(conntectionString));
+        builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(conntectionString));
+        //builder.Services.AddDbContext<FastApi.Context.ApplicationContext>(options => options.UseSqlServer(conntectionString));
 
         var app = builder.Build();
         app.UseFastEndpoints(c => {
-            // everything is anonymous for this sample
+            // everything is anonymous for this sample test
             c.Endpoints.Configurator = epd => epd.AllowAnonymous();
         }).UseSwaggerGen();
 
