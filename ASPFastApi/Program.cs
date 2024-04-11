@@ -4,6 +4,7 @@ using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
 
 using System;
+using Microsoft.AspNetCore.Authentication;
 
 public class Program // Now public for easier accessibility
 {
@@ -15,10 +16,12 @@ public class Program // Now public for easier accessibility
         builder.Services.AddScoped<ApplicationContext>();
 
         builder.Services
-            .AddFastEndpoints()
+            .AddFastEndpoints();
+        builder.Services
             .SwaggerDocument();
         builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(conntectionString));
         //builder.Services.AddDbContext<FastApi.Context.ApplicationContext>(options => options.UseSqlServer(conntectionString));
+        //"BlogConnection": "Server=DESKTOP-VA6351T\\SQLEXPRESS;Database=Blog;User id=TestUser;Password=qwerty;Encrypt=Optional"
 
         var app = builder.Build();
         app.UseFastEndpoints(c => {

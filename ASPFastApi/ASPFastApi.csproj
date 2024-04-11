@@ -25,7 +25,10 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
     </ItemGroup>
     <ItemGroup>
+        <InternalsVisibleTo Include="AppTests" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Auth\" />
       <Folder Include="Entities\" />
-      <Folder Include="Features\Public\AddArticle\" />
     </ItemGroup>
 </Project>
