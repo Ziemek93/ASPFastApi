@@ -9,15 +9,19 @@ public class ArticleMapper : Mapper<Request, object, Article>, IResponseMapper
     {
         ArticleName = am.ArticleName,
         ArticleDescription = am.ArticleDescription,
-        Visibility = am.Visibility
+        Visibility = am.Visibility,
+        Tags = am.Tags
     };
     
     public override Response FromEntity(Article a) => new() // to db - setp 2
     {
+        ArticleId = a.ArticleId,
         ArticleName = a.ArticleName,
         ArticleDescription = a.ArticleDescription,
+        Category = a.Category,
         Visibility = a.Visibility,
-        Comments = a.Comments
+        Comments = a.Comments,
+        Tags = a.Tags
     };
 
 }

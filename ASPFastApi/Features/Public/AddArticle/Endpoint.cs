@@ -20,24 +20,24 @@ public class Endpoint : Endpoint<Request, Response, ArticleMapper>
 
     public override async Task HandleAsync(Request req, CancellationToken ct)
     {
-
-        //alternative for SendAsync()
-        // var result = await Data.GetArticles(context);
-        // var r = _context.Articles.Add(Map.FromEntity(req));
-
-        // var result = _context.Articles.Include(a => a.Comments).ToList(); //GetArticles(context);
-        //
-        // var entity = result.Select(a => Map.FromEntity(a)).ToList();
-        // var abc = Map.ToEntity(req);
-        _context.Articles.Add(Map.ToEntity(req));
-        var result = await _context.SaveChangesAsync();
-        // await SendAsync(null, 200, default);
-        await SendAsync(new()
+        var categoryExists = _context.Categories.Where(c => c.CategoryId == req.CategoryId).Any();
+        if (!categoryExists)
         {
-            ArticleName = "done",
-            ArticleDescription =  "done",
-            Visibility = false
-        });
+            throw new BadHttpRequestException("Kategoria o takim id nie istnieje");
+        }
+        
+        var articleEntity = _context.Articles.Add(Map.ToEntity(req));
+        var result = await _context.SaveChangesAsync();
+        
+        if (result == 0)
+        {
+            throw new BadHttpRequestException("Artykuł nie został dodany");
+        }
+        var createdArticle = await _context.Articles.Include(ar => ar.Category)
+            .Where(article => article.ArticleId == articleEntity.Entity.ArticleId).SingleOrDefaultAsync();
+        // await SendAsync(null, 200, default);
+        
+        await SendAsync(Map.FromEntity(createdArticle));
         
     }
 

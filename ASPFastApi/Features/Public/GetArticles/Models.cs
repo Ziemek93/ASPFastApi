@@ -7,6 +7,7 @@ public class Request
     public string ArticleName { get; set; } = null!;
     public string? ArticleDescription { get; set; }
     public bool Visibility { get; set; }
+    public ICollection<Tag> Tags { get; set; }
 }
 
 public class Response
@@ -14,6 +15,7 @@ public class Response
     public string ArticleName { get; set; } = null!;
     public string? ArticleDescription { get; set; }
     public bool Visibility { get; set; }
+    public ICollection<Tag> Tags { get; set; }
     
     public virtual ICollection<Comment> Comments { get; set; }
     
