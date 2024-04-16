@@ -19,9 +19,15 @@ public class Endpoint : EndpointWithoutRequest<List<Response>, ArticleMapper>
  
         //alternative for SendAsync()
         // var result = await Data.GetArticles(context);
-        var result = context.Articles.Include(a => a.Comments).Include(a => a.Tags).ToList(); //GetArticles(context);
+        var result = context.Articles
+            .Include(a => a.Comments)
+            .Include(a => a.Tags)
+            .ToList(); //GetArticles(context);
 
-        var entity = result.Select(a => Map.FromEntity(a)).ToList();
+        var entity = result.Select(a => 
+            Map.FromEntity(a))
+            .OrderBy(a => a.ArticleName)
+            .ToList();
             
         
         await SendAsync(entity, 200);

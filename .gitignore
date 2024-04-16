@@ -377,3 +377,12 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+AppTests/bin/
+
+AppTests/obj/
+
+ASPFastApi/bin/
+
+ASPFastApi/obj/
+
+.idea/

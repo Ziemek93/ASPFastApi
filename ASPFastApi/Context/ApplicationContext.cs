@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FastApi.Entity;
-using System.Reflection.Emit;
+using System.Reflection.Emit; 
 
 namespace FastApi.Context
 {
     public class ApplicationContext : DbContext, IAppContext
-    {
-        public DbSet<Article> Articles { get; set; }
+    {        
+         public DbSet<Article> Articles { get; set; }
+ 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -33,6 +34,8 @@ namespace FastApi.Context
         {
             //modelBuilder.Entity<Article>().HasData
             DataSeed.generateData(modelBuilder);
+            
+        
 
             base.OnModelCreating(modelBuilder);
         }

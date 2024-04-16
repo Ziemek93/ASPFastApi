@@ -20,7 +20,10 @@ public class ArticleMapper : Mapper<Request, object, Article>, IResponseMapper
         ArticleName = a.ArticleName,
         ArticleDescription = a.ArticleDescription ,
         Visibility =  a.Visibility,
-        Comments = a.Comments,
-        Tags = a.Tags
+        Comments = a.Comments.Select(c => new CommentDto()
+        {
+            Content = c.Content
+        }),
+        Tags = a.Tags.Select(c => c.Title).ToList(),//a.Tags.Select(t => t.Title)
     };
 }

@@ -4,7 +4,9 @@ using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
 
 using System;
+using FastEndpoints.Security;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 public class Program // Now public for easier accessibility
 {
@@ -15,19 +17,28 @@ public class Program // Now public for easier accessibility
         var conntectionString = builder.Configuration.GetConnectionString("BlogConnection");
         builder.Services.AddScoped<ApplicationContext>();
 
-        builder.Services
-            .AddFastEndpoints();
-        builder.Services
-            .SwaggerDocument();
+      
         builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(conntectionString));
         //builder.Services.AddDbContext<FastApi.Context.ApplicationContext>(options => options.UseSqlServer(conntectionString));
-        //"BlogConnection": "Server=DESKTOP-VA6351T\\SQLEXPRESS;Database=Blog;User id=TestUser;Password=qwerty;Encrypt=Optional"
+        builder.Services
+            .AddAuthenticationJwtBearer(s =>
+            {
+                s.SigningKey = "testjwttestjwttestjwttestjwttestjwttestjwttestjwttestjwt";
+            }) 
+            .AddAuthorization()
+            .AddFastEndpoints(); 
+        
+        builder.Services
+            .SwaggerDocument();
 
+        
         var app = builder.Build();
-        app.UseFastEndpoints(c => {
-            // everything is anonymous for this sample test
-            c.Endpoints.Configurator = epd => epd.AllowAnonymous();
-        }).UseSwaggerGen();
+        app
+            .UseAuthentication()
+            .UseAuthorization()
+            .UseFastEndpoints(
+                // c => { c.Endpoints.Configurator = epd => epd.AllowAnonymous(); }
+                ).UseSwaggerGen();
 
         app.Run();
     }
