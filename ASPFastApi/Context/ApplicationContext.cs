@@ -11,7 +11,7 @@ namespace FastApi.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public ModelBuilder TestBuilder { get; set; }
+        public DbSet<User> User { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options) :base(options) { 
             //TestBuilder = modelBuilder;
         }
