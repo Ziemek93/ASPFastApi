@@ -1,33 +1,28 @@
 ﻿using FastApi.Entity;
 
-namespace ASPFastApi.Features.Public.GetArticles;
+namespace ASPFastApi.Features.Public.AddArticle;
 
 public class Request
 {
     public string ArticleName { get; set; } = null!;
     public string? ArticleDescription { get; set; }
-    public bool Visibility { get; set; }
+    
+    public int CategoryId { get; set; }
+    
     public ICollection<Tag> Tags { get; set; }
+    public bool Visibility { get; set; }
 }
 
 public class Response
 {
+    public int ArticleId { get; set; }
     public string ArticleName { get; set; } = null!;
     public string? ArticleDescription { get; set; }
+    public Category Category { get; set; }
     public bool Visibility { get; set; }
-    public List<String> Tags { get; set; }
+    public ICollection<Tag> Tags { get; set; }
     
-    public virtual IEnumerable<CommentDto> Comments { get; set; }
+    public virtual ICollection<Comment> Comments { get; set; }
     
     
-}
-
-public class TagDto
-{
-    public string Title { get; set; }
-}
-
-public class CommentDto
-{
-    public string Content { get; set; }
 }
