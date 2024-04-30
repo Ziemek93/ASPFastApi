@@ -1,5 +1,7 @@
 using FastEndpoints.Security;
 
+namespace ASPFastApi.Features.Public.Auth.Login;
+
 public class Request
 {
     public string Username { get; set; }

@@ -6,7 +6,7 @@ namespace FastApi.Context
 {
     public class ApplicationContext : DbContext, IAppContext
     {        
-         public DbSet<Article> Articles { get; set; }
+        public DbSet<Article> Articles { get; set; }
  
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }

@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Text;
 using ASPFastApi.Auth;
+using ASPFastApi.Features.Public.Auth.Login;
 using FastApi.Context;
 using FastApi.Entity;
 using FastEndpoints;
@@ -39,12 +40,7 @@ public class AuthService : IAuthService
         };
     }
 
-    public async Task<string> googleLogin(User user)
-    {
-        
-
-        throw new NotImplementedException();
-    }
+  
     public async Task<string> generateJwtToken(User user)
     {
         var key = _config.GetSection("Auth").GetSection("ApiKey").Value;
@@ -77,4 +73,6 @@ public class AuthService : IAuthService
 
         return jwtToken;
     }
+
+ 
 }

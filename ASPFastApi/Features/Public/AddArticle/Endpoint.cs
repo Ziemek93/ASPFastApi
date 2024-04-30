@@ -8,6 +8,7 @@ public class Endpoint : Endpoint<Request, Response, ArticleMapper>
 {
     private readonly ApplicationContext _context;
 
+
     public Endpoint(ApplicationContext context)
     {
         _context = context;
