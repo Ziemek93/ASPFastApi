@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using FastApi.Entity;
 using Faker;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.ComponentModel.Design;
+using ASPFastApi.Models.Entities;
 
 namespace FastApi.Context
 {

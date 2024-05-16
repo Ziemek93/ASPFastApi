@@ -1,5 +1,5 @@
 ﻿using ASPFastApi.Features.Public.GetArticles;
-using FastApi.Entity;
+using ASPFastApi.Models.Entities;
 using FastEndpoints;
 
 namespace ASPFastApi.Features.Public.Auth.Register;

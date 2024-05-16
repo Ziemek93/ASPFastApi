@@ -1,19 +1,25 @@
 ﻿using ASPFastApi.Auth;
+using ASPFastApi.Services.ArticleService;
 using FastApi.Context;
-using FastApi.Entity;
 using FastEndpoints;
+using FluentAssertions.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPFastApi.Features.Public.GetArticles;
 
-public class Endpoint : EndpointWithoutRequest<List<Response>, ArticleMapper>
-{    
-    public ApplicationContext context { get; set; }
+public class Endpoint : EndpointWithoutRequest<IEnumerable<Response>?, ArticleMapper>
+{
+    private readonly IArticleService _service;
 
+
+    public Endpoint(IArticleService service)
+    {
+        _service = service;
+    }
     public override void Configure()
     {
-        Get("/api/article");
-        //  AllowAnonymous();
+        Get("/api/articles");
+        //AllowAnonymous();
         Roles("Admin", "Manager");
         Claims("Username", "EmployeeID");
         // AccessControl("Article_Create");
@@ -24,26 +30,13 @@ public class Endpoint : EndpointWithoutRequest<List<Response>, ArticleMapper>
     }
     public override async Task HandleAsync(CancellationToken ct)
     {
-        //alternative for SendAsync()
-        // var result = await Data.GetArticles(context);
-        var result = context.Articles
-            .Include(a => a.Comments)
-            .Include(a => a.Tags)
-            .ToList(); //GetArticles(context);
+        var result = await _service.GetArticles();
 
-        var entity = result.Select(a => 
-            Map.FromEntity(a))
-            .OrderBy(a => a.ArticleName)
-            .ToList();
+        var response = result.resObj.Select(x => Map.FromEntity(x));
+
             
         
-        await SendAsync(entity, 200);
+        await SendAsync(response, 200);
     }
 
-}
-
-public class TestClass
-{
-    public string t1 { get; set; }
-    public string t2 { get; set; }
 }

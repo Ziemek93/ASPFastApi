@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using FastApi.Entity;
-using System.Reflection.Emit; 
+using System.Reflection.Emit;
+using ASPFastApi.Models.Entities;
 
 namespace FastApi.Context
 {

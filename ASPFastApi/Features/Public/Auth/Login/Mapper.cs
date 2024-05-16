@@ -1,4 +1,4 @@
-using FastApi.Entity;
+using ASPFastApi.Models.Entities;
 using FastEndpoints;
 using FluentValidation;
 
