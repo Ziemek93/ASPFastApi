@@ -1,9 +1,9 @@
-﻿using FastApi.Context;
-using FastApi.Entity;
+﻿using ASPFastApi.Models.Entities;
+using FastApi.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPFastApi.Features.Public.AddArticle;
-
+//nie wiem po chuj to
 public class Data 
 {
     async internal static Task<List<Article>> AddArticle(ApplicationContext context, ArticleMapper mapper, Request req)

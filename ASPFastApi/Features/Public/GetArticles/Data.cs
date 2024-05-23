@@ -1,5 +1,4 @@
 ﻿using FastApi.Context;
-using FastApi.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPFastApi.Features.Public.GetArticles;

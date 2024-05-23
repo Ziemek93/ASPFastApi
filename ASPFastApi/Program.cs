@@ -8,6 +8,8 @@ using ASPFastApi.Middleware;
 using FastEndpoints.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using ASPFastApi.Services.ArticleService;
+using ASPFastApi.Repositories.Articles;
 
 public class Program // Now public for easier accessibility
 {
@@ -18,6 +20,8 @@ public class Program // Now public for easier accessibility
         var conntectionString = builder.Configuration.GetConnectionString("BlogConnection");
         builder.Services.AddScoped<ApplicationContext>();
         builder.Services.AddScoped<IAuthService, AuthService>();
+        builder.Services.AddScoped<IArticleService, ArticleService>();
+        builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 
       
         builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(conntectionString));
@@ -55,7 +59,7 @@ public class Program // Now public for easier accessibility
             .UseAuthentication()
             .UseAuthorization()
             .UseFastEndpoints(
-                // c => { c.Endpoints.Configurator = epd => epd.AllowAnonymous(); }
+                 c => { c.Endpoints.Configurator = epd => epd.AllowAnonymous(); }
                 ).UseSwaggerGen();
 
         app.Run();

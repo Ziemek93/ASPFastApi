@@ -1,5 +1,5 @@
-﻿using Azure.Core;
-using FastApi.Entity;
+﻿using ASPFastApi.Models.Entities;
+using Azure.Core;
 using FastEndpoints;
 using MongoDB.Bson;
 

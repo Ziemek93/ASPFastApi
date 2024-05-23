@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FastApi.Entity;
+namespace ASPFastApi.Models.Entities;
 
 public class User
 {

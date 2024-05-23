@@ -1,5 +1,5 @@
 ﻿using ASPFastApi.Features.Public.Auth.Login;
-using FastApi.Entity;
+using ASPFastApi.Models.Entities;
 
 namespace ASPFastApi.Middleware;
 
