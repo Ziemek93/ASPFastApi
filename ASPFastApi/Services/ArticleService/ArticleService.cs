@@ -2,6 +2,7 @@
 using ASPFastApi.Models.Entities;
 using ASPFastApi.Models.Enums;
 using ASPFastApi.Repositories.Articles;
+using Edit = ASPFastApi.Features.Public.EditArticle;
 
 namespace ASPFastApi.Services.ArticleService
 {
@@ -45,11 +46,11 @@ namespace ASPFastApi.Services.ArticleService
 
         }
         
-        public async Task<ResponseTuple<bool, ResponseEnum>> EditArticle(Article article, CancellationToken token = default)
+        public async Task<ResponseTuple<bool, ResponseEnum>> EditArticle(int id, Edit.Request article, CancellationToken token = default)
         {
             var response = new ResponseTuple<bool, ResponseEnum>();
 
-            var result = await _articlerepository.EditArticle(article);
+            var result = await _articlerepository.EditArticle(id, article);
 
 
             if (!result)
@@ -71,7 +72,7 @@ namespace ASPFastApi.Services.ArticleService
             var response = new ResponseTuple<Article, ResponseEnum>();
 
             var result = await _articlerepository.GetArticle(id, token);
-            if (result != null)
+            if (result == null)
             {
                 return response.Make(result, ResponseEnum.NotFound, "Nie znaleziono artykułu");
             }

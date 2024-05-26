@@ -5,11 +5,10 @@ namespace ASPFastApi.Features.Public.EditArticle;
 
 public class Request
 {
-    public int ArticleId { get; set; }
     public string ArticleName { get; set; }
     public string? ArticleDescription { get; set; }
     public bool Visibility { get; set; }
-    public ICollection<CommentDto> Tags { get; set; }
+    public ICollection<string> Tags { get; set; }
 }
 
 

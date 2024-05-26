@@ -1,5 +1,6 @@
 ﻿using ASPFastApi.Features.Public.AddArticle;
 using ASPFastApi.Models.Entities;
+using Edit = ASPFastApi.Features.Public.EditArticle;
 
 namespace ASPFastApi.Repositories.Articles
 {
@@ -10,6 +11,6 @@ namespace ASPFastApi.Repositories.Articles
         Task<int> AddArticle(Article article, CancellationToken token = default);
         Task<bool> CategoryExist(Article article, CancellationToken token = default);
         Task<bool> ArticleExist(Article article, CancellationToken token = default);
-        Task<bool> EditArticle(Article request, CancellationToken token = default);
+        Task<bool> EditArticle(int id, Edit.Request req, CancellationToken token = default);
     }
 }

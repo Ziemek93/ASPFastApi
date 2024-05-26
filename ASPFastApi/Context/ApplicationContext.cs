@@ -32,6 +32,9 @@ namespace FastApi.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Tag>().HasIndex(x => x.Title)
+                .IsUnique();
+
             //modelBuilder.Entity<Article>().HasData
             DataSeed.generateData(modelBuilder);
             
