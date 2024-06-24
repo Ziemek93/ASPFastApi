@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ASPFastApi.Models.Entities;
+﻿using ASPFastApi.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FastApi.Context
 {

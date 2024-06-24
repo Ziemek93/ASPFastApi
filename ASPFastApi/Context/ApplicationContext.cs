@@ -1,22 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
-using ASPFastApi.Models.Entities;
+﻿using ASPFastApi.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FastApi.Context
 {
     public class ApplicationContext : DbContext, IAppContext
-    {        
+    {
         public DbSet<Article> Articles { get; set; }
- 
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> User { get; set; }
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) :base(options) { 
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
+        {
             //TestBuilder = modelBuilder;
         }
         public ApplicationContext() { }
-        
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,8 +37,8 @@ namespace FastApi.Context
 
             //modelBuilder.Entity<Article>().HasData
             DataSeed.generateData(modelBuilder);
-            
-        
+
+
 
             base.OnModelCreating(modelBuilder);
         }

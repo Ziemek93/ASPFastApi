@@ -1,11 +1,10 @@
-﻿using ASPFastApi.Models.Entities;
-using Azure.Core;
+﻿using ASPFastApi.Models.ArticlesDto;
+using ASPFastApi.Models.Entities;
 using FastEndpoints;
-using MongoDB.Bson;
 
 namespace ASPFastApi.Features.Public.GetArticle;
 
-public class ArticleMapper : Mapper<int, object, Article>, IResponseMapper
+public class ArticleMapper : Mapper<int, ArticleDto, Article>, IResponseMapper
 {
 
     //public override Request ToEntity(Article a) => new() // to db - setp 2
@@ -19,12 +18,12 @@ public class ArticleMapper : Mapper<int, object, Article>, IResponseMapper
     //    }),
     //    Tags = a.Tags.Select(c => c.Title).ToList(),//a.Tags.Select(t => t.Title)
     //};
-    public override Response FromEntity(Article a) => new() // to db - setp 2
+    public override ArticleDto FromEntity(Article a) => new() // to db - setp 2
     {
         ArticleName = a.ArticleName,
-        ArticleDescription = a.ArticleDescription ,
-        Visibility =  a.Visibility,
-        Comments = a.Comments.Select(c => new CommentDto()
+        ArticleDescription = a.ArticleDescription,
+        Visibility = a.Visibility,
+        Comments = a.Comments.Select(c => new ArticleCommentDto()
         {
             Content = c.Content
         }),

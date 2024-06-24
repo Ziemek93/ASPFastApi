@@ -1,10 +1,11 @@
-﻿using ASPFastApi.Models.Entities;
+﻿using ASPFastApi.Models.ArticlesDao;
+using ASPFastApi.Models.Entities;
 using FastEndpoints;
 
-namespace ASPFastApi.Features.Public.EditArticle;
-public class Mapper : Mapper<Request, Response, Article>, IResponseMapper
+namespace ASPFastApi.Features.Private.EditArticle;
+public class Mapper : Mapper<ArticleDao, object, Article>, IResponseMapper
 {
-    public override Article ToEntity(Request a) => new() // to db - setp 2
+    public override Article ToEntity(ArticleDao a) => new() // to db - setp 2
     {
         ArticleName = a.ArticleName,
         ArticleDescription = a.ArticleDescription,

@@ -1,12 +1,7 @@
-﻿using FastApi.Context;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-using Add = ASPFastApi.Features.Public.AddArticle;
-using Get = ASPFastApi.Features.Public.GetArticles;
+﻿using ASPFastApi.Models.ArticlesDao;
 using ASPFastApi.Models.Entities;
-using System.ComponentModel.DataAnnotations;
-using Edit = ASPFastApi.Features.Public.EditArticle;
-using ASPFastApi.Migrations;
+using FastApi.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASPFastApi.Repositories.Articles;
 
@@ -19,7 +14,7 @@ public class ArticleRepository : IArticleRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Article>> GetArticles(CancellationToken token)
+    public async Task<IEnumerable<Article>> GetArticlesAsync(CancellationToken token)
     {
         using var context = _context;
 
@@ -29,20 +24,20 @@ public class ArticleRepository : IArticleRepository
             .ToListAsync(token); //GetArticles(context);
     }
 
-    public async Task<bool> CategoryExist(Article request, CancellationToken token = default)
+    public async Task<bool> CategoryExistAsync(int id, CancellationToken token = default)
     {
         using var context = _context;
-        var categoryExists = await context.Categories.Where(c => c.CategoryId == request.CategoryId).AnyAsync();
+        var categoryExists = await context.Categories.Where(c => c.CategoryId == id).AnyAsync();
         return categoryExists;
     }
-    public async Task<bool> ArticleExist(Article request, CancellationToken token = default)
+    public async Task<bool> ArticleExistAsync(Article request, CancellationToken token = default)
     {
         using var context = _context;
         var categoryExists = context.Articles.Where(c => c.ArticleId == request.ArticleId).AnyAsync();
         return await categoryExists;
     }
 
-    public async Task<int> AddArticle (Article request, CancellationToken token = default)
+    public async Task<int> AddArticleAsync(Article request, CancellationToken token = default)
     {
         using var context = _context;
         var response = context.Articles.Add(request);
@@ -50,68 +45,97 @@ public class ArticleRepository : IArticleRepository
 
         return result;
     }
-    public async Task<Article?> GetArticle(int id, CancellationToken token = default)
+    public async Task<Article?> GetArticleAsync(int id, CancellationToken token = default)
     {
         using var context = _context;
-        var article = await context.Articles
-            .Where(x=>x.ArticleId == id)
+        var article = await context.Articles?
+            .Where(x => x.ArticleId == id)
             .Include(a => a.Comments)
             .Include(a => a.Tags)
-            .FirstOrDefaultAsync();
+            .FirstOrDefaultAsync(cancellationToken: token);
         return article;
 
     }
 
-    private async Task<IEnumerable<Tag>> InsertTags(IEnumerable<string> tagsTitles, CancellationToken token = default)
+    private async Task<IEnumerable<Tag>> InsertTagsAsync(List<string> tagsTitles, ApplicationContext context, CancellationToken token = default)
     {
-        using var context = _context;
-        //Tag tag1 = new Tag
-        //{
-        //    Title = "sse bWsts"
-        //};
-        //Tag tag2 = new Tag
-        //{
-        //    Title = "TST2"
-        //};
-
-        //IEnumerable<Tag> tagsTST = new List<Tag>()
-        //{
-        //    tag1,
-        //    tag2
-        //};
-        //var t = context.Tags.Add(tag1);
-
-        IEnumerable<Tag> tags = tagsTitles.Select(x => new Tag
         {
-            Title = x,
-        });
-        context.Tags.AddRange(tags);//.ToList();
-        var response = await context.SaveChangesAsync(token);
+            List<string> toRemove = new List<string>();
 
-        return tags;
+            foreach (var tag in tagsTitles)
+            {
+                var result = await context.Tags.Where(x => x.Title == tag).FirstOrDefaultAsync(token);
+                if (result != null)
+                {
+                    toRemove.Add(tag);
+                }
+
+            }
+            foreach (var title in toRemove)
+            {
+                tagsTitles.Remove(title);
+            }
+            if (tagsTitles.Count() > 0)
+            {
+                IEnumerable<Tag> tags = tagsTitles.Select(x => new Tag
+                {
+                    Title = x,
+                });
+                //context.Tags.AddRange(tags);//.ToList();
+                //var ResponsResult = await context.SaveChangesAsync(token);
+
+                return tags;
+
+            }
+            return null;
+        };
     }
-    public async Task<bool> EditArticle(int id, Edit.Request req, CancellationToken token = default)
+    public async Task<bool> EditArticleAsync(int id, ArticleDao req, CancellationToken token = default)
     {
-        var tags = await InsertTags(req.Tags, token);
 
-        using var context = _context;
-        var entity = await context.Articles
-            .Where(x => x.ArticleId == id)
-            .FirstOrDefaultAsync();
-        if(entity == null)
+        using (var context = _context)
         {
+            var tags = await InsertTagsAsync(req.Tags, _context, token);
+
+            var entity = await context.Articles
+                .Where(x => x.ArticleId == id)
+                .FirstOrDefaultAsync();
+            if (entity == null)
+            {
+                return false;
+            }
+            entity.ArticleName = req.ArticleName;
+            entity.ArticleDescription = req.ArticleDescription;
+            entity.Tags = tags.ToList();
+
+            var result = await context.SaveChangesAsync(token);
+
+            return result != 0;
+
+        };
+    }
+
+    public async Task<bool> DeleteArticleAsync(int id, CancellationToken token = default)
+    {
+        using (var context = _context)
+        {
+            var article = await context.Articles?
+            .Where(x => x.ArticleId == id)
+            .Include(a => a.Comments)
+            .FirstOrDefaultAsync(cancellationToken: token);
+            if (article == null)
+            {
+                return false;
+            }
+            var result = _context.Articles.Remove(article);
+            if (result != null)
+            {
+                return true;
+            }
             return false;
         }
-        entity.ArticleName = req.ArticleName;
-        entity.ArticleDescription = req.ArticleDescription;
-
-        var result = await context.SaveChangesAsync(token);
-
-        return result != 0;
-
-
-
     }
+
 
 
 

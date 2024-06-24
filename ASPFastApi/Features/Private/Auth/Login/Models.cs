@@ -1,11 +1,9 @@
-using FastEndpoints.Security;
-
-namespace ASPFastApi.Features.Public.Auth.Login;
+namespace ASPFastApi.Features.Private.Auth.Login;
 
 public class Request
 {
     public string Username { get; set; }
-    public string Password{ get; set; }
+    public string Password { get; set; }
 }
 
 public class Response

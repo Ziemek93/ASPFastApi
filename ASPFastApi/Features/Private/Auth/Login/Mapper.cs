@@ -1,8 +1,7 @@
 using ASPFastApi.Models.Entities;
 using FastEndpoints;
-using FluentValidation;
 
-namespace ASPFastApi.Features.Public.Auth.Login;
+namespace ASPFastApi.Features.Private.Auth.Login;
 
 public class LoginMapper : Mapper<Request, object, User>, IResponseMapper
 {
@@ -16,7 +15,7 @@ public class LoginMapper : Mapper<Request, object, User>, IResponseMapper
         Password = request.Password
     };
 
-    public override Response? FromEntity (User user) => new()
+    public override Response? FromEntity(User user) => new()
     {
         Username = user.Username,
         Token = ""

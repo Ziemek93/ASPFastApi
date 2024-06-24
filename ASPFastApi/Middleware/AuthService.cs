@@ -1,14 +1,8 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using ASPFastApi.Auth;
-using ASPFastApi.Features.Public.Auth.Login;
+﻿using ASPFastApi.Features.Private.Auth.Login;
 using ASPFastApi.Models.Entities;
 using FastApi.Context;
-using FastEndpoints;
 using FastEndpoints.Security;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 namespace ASPFastApi.Middleware;
 
@@ -40,7 +34,7 @@ public class AuthService : IAuthService
         };
     }
 
-  
+
     public async Task<string> generateJwtToken(User user)
     {
         var key = _config.GetSection("Auth").GetSection("ApiKey").Value;
@@ -55,7 +49,7 @@ public class AuthService : IAuthService
                 // o.User.Permissions.Add("Article_Create");
                 // o.User["UserId"] = "001"; //indexer based claim setting
             });
- 
+
         // var tokenHandler = new JwtSecurityTokenHandler();
         // var token = await Task.Run(() =>
         // {
@@ -74,5 +68,5 @@ public class AuthService : IAuthService
         return jwtToken;
     }
 
- 
+
 }

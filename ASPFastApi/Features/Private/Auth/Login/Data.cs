@@ -1,4 +1,4 @@
-﻿namespace ASPFastApi.Features.Public.Login;
+﻿namespace ASPFastApi.Features.Private.Auth.Login;
 
 public static class Data
 {

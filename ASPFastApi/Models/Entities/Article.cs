@@ -1,8 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-using System.Xml.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace ASPFastApi.Models.Entities;
 
@@ -16,7 +15,7 @@ public class Article
 
     [Key]
     public int ArticleId { get; set; }
-    public int? CategoryId { get; set; }
+    public int CategoryId { get; set; }
 
     [StringLength(30)]
     public string ArticleName { get; set; } = null!;

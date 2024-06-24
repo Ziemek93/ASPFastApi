@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ASPFastApi.Models.Entities;
 using Faker;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Storage;
-using System.ComponentModel.Design;
-using ASPFastApi.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FastApi.Context
 {
@@ -13,7 +10,7 @@ namespace FastApi.Context
         //public DataSeed(ModelBuilder modelBuilder) { 
         //    this.modelBuilder = modelBuilder;
         //}
-        
+
         //public void ManyToManyShuffle()
         //{
 
@@ -28,9 +25,9 @@ namespace FastApi.Context
             var tags = Enumerable.Range(1, 20).Select(i => new Tag
             {
                 TagId = i,
-                Title = StringFaker.SelectFrom(random.Next(5, 20), "Test Word bla bla")
+                Title = StringFaker.SelectFrom(random.Next(5, 20), "Test Wordblbla")
             });
-            
+
 
             //Category[] categories = new Category[100];
             //var categories = Enumerable.Range(1, 10).Select(i => new Category
@@ -54,7 +51,8 @@ namespace FastApi.Context
             //modelBuilder.Entity<Category>().HasKey(c => c.CategoryId);
             //modelBuilder.Entity<Article>().Property(e => e.ArticleId).UseIdentityColumn();
             //modelBuilder.Entity<Category>().Property(e => e.CategoryId).UseIdentityColumn();
-            var categories = Enumerable.Range(1, 10).Select(i => {
+            var categories = Enumerable.Range(1, 10).Select(i =>
+            {
                 string desc = TextFaker.Sentences(random.Next(1, 3));
                 desc = desc.Length > 200 ? desc.Substring(0, 200) : desc;
                 return new Category()
@@ -64,7 +62,7 @@ namespace FastApi.Context
                     CategoryDescription = desc
                 };
             }).ToList();
-            
+
 
 
             int counter = 1;
@@ -78,7 +76,7 @@ namespace FastApi.Context
                 {
                     ArticleId = i,
                     ArticleName = name,
-                    ArticleDescription = TextFaker.Sentences(random.Next(1,3)),
+                    ArticleDescription = TextFaker.Sentences(random.Next(1, 3)),
                     Visibility = true,
                     CategoryId = c.CategoryId,  // Set foreign key to existing Category
                     //Tags = tags.ToList()  // Assuming tags is correctly initialized
@@ -86,7 +84,8 @@ namespace FastApi.Context
             })).ToList();
 
 
-            var comments = Enumerable.Range(1, 10).Select(i =>{
+            var comments = Enumerable.Range(1, 10).Select(i =>
+            {
                 string cont = StringFaker.SelectFrom(random.Next(20, 161), TextFaker.Sentence());
                 cont = cont.Length > 200 ? cont.Substring(0, 200) : cont;
 
@@ -119,8 +118,8 @@ namespace FastApi.Context
                     Enumerable.Range(1, 50).Select(
                         _ => new
                         {
-                            TagId = random.Next(1, tags.Count()+1),
-                            ArticleId = random.Next(1, articles.Count()+1)
+                            TagId = random.Next(1, tags.Count() + 1),
+                            ArticleId = random.Next(1, articles.Count() + 1)
 
                         }).Distinct()
                      ));
@@ -130,13 +129,13 @@ namespace FastApi.Context
 
             //modelBuilder.Entity("ArticleTag")               
             //    .HasData(
-                    //Enumerable.Range(1, 50).Select(
-                    //    _ => new
-                    //    {
-                    //        TagId = random.Next(1, tags.Count()),
-                    //        ArticleId = random.Next(1, articles.Count())
+            //Enumerable.Range(1, 50).Select(
+            //    _ => new
+            //    {
+            //        TagId = random.Next(1, tags.Count()),
+            //        ArticleId = random.Next(1, articles.Count())
 
-                    //    }
+            //    }
             //        )
             //    );
 

@@ -1,21 +1,17 @@
+using ASPFastApi.Middleware;
+using ASPFastApi.Repositories.Articles;
+using ASPFastApi.Services.ArticleService;
 using FastApi.Context;
 using FastEndpoints;
+using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
-
-using System;
-using ASPFastApi.Middleware;
-using FastEndpoints.Security;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using ASPFastApi.Services.ArticleService;
-using ASPFastApi.Repositories.Articles;
 
 public class Program // Now public for easier accessibility
 {
     static void Main(string[] args)
     {
-        
+
         var builder = WebApplication.CreateBuilder(args);
         var conntectionString = builder.Configuration.GetConnectionString("BlogConnection");
         builder.Services.AddScoped<ApplicationContext>();
@@ -23,13 +19,13 @@ public class Program // Now public for easier accessibility
         builder.Services.AddScoped<IArticleService, ArticleService>();
         builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 
-      
+
         builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(conntectionString));
         //builder.Services.AddDbContext<FastApi.Context.ApplicationContext>(options => options.UseSqlServer(conntectionString));
         var apiKey = builder.Configuration.GetSection("Auth").GetSection("ApiKey").Value;
         var gId = builder.Configuration.GetSection("GoogleAuth").GetSection("id").Value;
         var gSecret = builder.Configuration.GetSection("GoogleAuth").GetSection("secret").Value;
-       
+
         builder.Services
             .AddAuthenticationJwtBearer(s =>
             {
@@ -49,11 +45,11 @@ public class Program // Now public for easier accessibility
         //         googleOptions.ClientSecret = gSecret;
         //     });
         //      
-        
+
         builder.Services
             .SwaggerDocument();
 
-        
+
         var app = builder.Build();
         app
             .UseAuthentication()

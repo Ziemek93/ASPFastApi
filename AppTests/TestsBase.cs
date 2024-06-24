@@ -1,22 +1,10 @@
-﻿using System.Data.Common;
-using System.Net;
-using System.Text.Json;
-using ASPFastApi;
-using DotNet.Testcontainers.Builders;
-using DotNet.Testcontainers.Containers;
-using FastApi.Context;
-using FastEndpoints;
-using FastEndpoints.Testing;
-using FluentAssertions;
-using FluentAssertions.Common;
-using Microsoft.AspNetCore.Hosting;
+﻿using FastApi.Context;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
+using System.Data.Common;
 using Testcontainers.PostgreSql;
-using GetArticles = ASPFastApi.Features.Public.GetArticles;
-using AddArticle = ASPFastApi.Features.Public.AddArticle;
 
 namespace AppTests;
 
@@ -70,9 +58,9 @@ public class TestsBase : IAsyncLifetime
                 services.AddDbContext<ApplicationContext>((_, option) => { option.UseSqlServer(_connectionString); });
             });
         });
-            using var scope = _factory.Services.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
-            await dbContext.Database.MigrateAsync();
+        using var scope = _factory.Services.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+        await dbContext.Database.MigrateAsync();
     }
 
     public async Task DisposeAsync()
@@ -80,7 +68,7 @@ public class TestsBase : IAsyncLifetime
         await _container.DisposeAsync().AsTask();
     }
 
- 
 
-   
+
+
 }
