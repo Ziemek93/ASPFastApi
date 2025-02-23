@@ -38,7 +38,10 @@ namespace ASPFastApi.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("Visibility")
@@ -48,46 +51,48 @@ namespace ASPFastApi.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Articles");
 
                     b.HasData(
                         new
                         {
                             ArticleId = 1,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "stocif o n rpt  dfutisimi e ae",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "oiigapiepislvil fun",
                             CategoryId = 1,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 2,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "d nbreiauromcug ng ndnm tmdt e",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "d rudt lmdcgrL ciaeaddtsnue rd",
                             CategoryId = 1,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 3,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "iercuDcpirunrr opueeiuapunlul ",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = " t tsEa ",
                             CategoryId = 1,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 4,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "nrumrreimcmteeea e rbqntubrsao",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "xtsbl euoitiuettd  i ",
                             CategoryId = 1,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 5,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = "frsnl  dseauuea suuu",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "ono a eeirm",
                             CategoryId = 1,
                             Visibility = true
                         },
@@ -95,119 +100,119 @@ namespace ASPFastApi.Migrations
                         {
                             ArticleId = 6,
                             ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "iurou uacn e   ae a iimae mnto",
+                            ArticleName = "lonii  ",
                             CategoryId = 2,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 7,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "mrteimus  lelcussionutqc llecl",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "eed nt rciae t eirrrlr reeun",
                             CategoryId = 2,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 8,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "im aunes  ",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "ueei n  actdamstotbbEr",
                             CategoryId = 2,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 9,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "aa   u npe   nituoeot  tamiadf",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "q ti eo exlr nsvd osloci duna ",
                             CategoryId = 2,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 10,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "lmlctm ito",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "n ss red",
                             CategoryId = 2,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 11,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "el dt",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "ruatsu  a  nqsq  x  tmqm i mri",
                             CategoryId = 3,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 12,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "r rrmrefpisrr",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = "meoiLraetdictar  uiaqc tlio  i",
                             CategoryId = 3,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 13,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = "unx  etoe usuo",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "cre srdLdraddedcmabi uitmocgua",
                             CategoryId = 3,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 14,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "uegLccee",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = " oq dece rgeastms gi p uspaurd",
                             CategoryId = 3,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 15,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "prrellrru nea  t oidm",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "uustenlasislm f fl brd ",
                             CategoryId = 3,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 16,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "tat tLdn toam tis inLel ",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "a oeldtccau ulaxinoacbrnaa u u",
                             CategoryId = 4,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 17,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "r cueau tdcof o dil ncei cnsna",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = "tentuicm srcd tft  or ",
                             CategoryId = 4,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 18,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = " ot sicli ou atero mtcnrvtxxpe",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = " q eqmocx xod dtuudxsoasueat",
                             CategoryId = 4,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 19,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = "aoii ra ae isop  ev",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = "ii  uti",
                             CategoryId = 4,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 20,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = " re unevcsouead oeelree eeno l",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "uouveh deulhi fr nuelld nei",
                             CategoryId = 4,
                             Visibility = true
                         },
@@ -215,239 +220,239 @@ namespace ASPFastApi.Migrations
                         {
                             ArticleId = 21,
                             ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = " eeripieimtgeigit a  i iiiaui ",
+                            ArticleName = "eu  el peopo r fru",
                             CategoryId = 5,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 22,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = " utmlp",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = "dammc ",
                             CategoryId = 5,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 23,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "unc tien tol uomeeitm",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = "drashlear  eaiueer r e lret fl",
                             CategoryId = 5,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 24,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "dnf vriei odepelueeeps puorir ",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "toardaiannueloleruui tioD d",
                             CategoryId = 5,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 25,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "appoe n dqen",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "sii u qli nai titUsaaersu amos",
                             CategoryId = 5,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 26,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "trdsru rtul alstl  uirnd",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "turipttocn p",
                             CategoryId = 6,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 27,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = " diudtitmaoiresatnmrtrt i",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "mniiudt om l cttiieeu e dold q",
                             CategoryId = 6,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 28,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "upttfp sDiiuedeoDslnod aue",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "teonitox roittciqc cxniqaioino",
                             CategoryId = 6,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 29,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "ueuio uee dfnnnauurliepea itf",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "lirtioom",
                             CategoryId = 6,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 30,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "tia lasoecsobq cnoarut noniono",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "l ma    oe   lp elci pootd pu ",
                             CategoryId = 6,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 31,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "mumontsio stt",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "tp sopaisedi  ac re  s",
                             CategoryId = 7,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 32,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = "s lomaliecnptsno  mi",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = " visi  ltlsmcti eraut q i il",
                             CategoryId = 7,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 33,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = "laorc dtn ioeuieodair  U e enl",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "afuiox u  eait oa   oxtn",
                             CategoryId = 7,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 34,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = "d xsxa",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "nb e   r  cileasune enlaboidic",
                             CategoryId = 7,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 35,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            ArticleName = "tecapdncldtiui",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "siioasui  u miqmaem   l im a x",
                             CategoryId = 7,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 36,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "eho sde erm rrlaev lnue r otit",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "s nu xndue  tnaiiifns xuoe  uu",
                             CategoryId = 8,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 37,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "aagesai  dasncrehirulisd",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = "tocrxrlridanu",
                             CategoryId = 8,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 38,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = " lduculmetimpnn   dt",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "r i euoenbcn d  ittL ",
                             CategoryId = 8,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 39,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "u t U m ucoaqdsud ",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "vereliDde l ripeslotretmr",
                             CategoryId = 8,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 40,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "noiintlmotl ",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "rttote renudmamcnrn  mp",
                             CategoryId = 8,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 41,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "ni sdnnmotfnccmluntttqlrn",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "uae eooe",
                             CategoryId = 9,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 42,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "ocel niaiqla xnunteinqd",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                            ArticleName = "aeudnr",
                             CategoryId = 9,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 43,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "oor mE btrrt",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "Dlllrdcnnhrogfaric ",
                             CategoryId = 9,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 44,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "diulidnos uutuhpott ",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "c qaniqso",
                             CategoryId = 9,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 45,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = " lltiadr dur",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "m  udsor  odesmeasa diontmuptr",
                             CategoryId = 9,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 46,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "aieu um uaaoso i nul",
+                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "i es i meuroete",
                             CategoryId = 10,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 47,
-                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = " i te rl tianno ntdocmcsiolmmr",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            ArticleName = "duu  lr  ntoo o o etoftr",
                             CategoryId = 10,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 48,
-                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            ArticleName = "lmaeeuiidugrorul ts lareuiaamn",
+                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "ao u t inq",
                             CategoryId = 10,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 49,
-                            ArticleDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
-                            ArticleName = "a iu dlooiatnfmormpacaEcneactn",
+                            ArticleDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            ArticleName = "txiis xnbac",
                             CategoryId = 10,
                             Visibility = true
                         },
                         new
                         {
                             ArticleId = 50,
-                            ArticleDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            ArticleName = "t ioorsso t l cait L sediiodlu",
+                            ArticleDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            ArticleName = "aeeoe litl iieunrtuntrt eanrt ",
                             CategoryId = 10,
                             Visibility = true
                         });
@@ -471,6 +476,9 @@ namespace ASPFastApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
@@ -479,62 +487,72 @@ namespace ASPFastApi.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CategoryDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            CategoryName = "ou id tcdstu atesmoo ao"
+                            CategoryDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            CategoryName = " arcr meamilco",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 2,
-                            CategoryDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            CategoryName = "eausdert"
+                            CategoryDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum",
+                            CategoryName = "rotot  qi o m rosuieppps tudtid musianeeo",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 3,
                             CategoryDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            CategoryName = "uru roedo cux suaso nienu io txnitoa sdaiUt"
+                            CategoryName = "ne  og e roipsc dm ir ttardiomu cesriarettm",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 4,
-                            CategoryDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla ",
-                            CategoryName = "iureusatdleD rrnr ispnotlualurap uiruee e tsein"
+                            CategoryDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            CategoryName = "lne muUu tuvaotvmtuv",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 5,
-                            CategoryDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            CategoryName = "taport ooll o  l a h"
+                            CategoryDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit a",
+                            CategoryName = "n umi i r  dqlsca eeds oapcslp inorusmtto mtitot",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 6,
-                            CategoryDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                            CategoryName = "eioeruu nx raop eoix  anurm  atpqsl"
+                            CategoryDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+                            CategoryName = "snoUauci exucri",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 7,
-                            CategoryDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-                            CategoryName = " ednuiedl ic iue aun ri  tmne"
+                            CategoryDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labo",
+                            CategoryName = "m qruolncetuuittct oatnsltg",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 8,
-                            CategoryDescription = "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla ",
-                            CategoryName = "laa  vemsitnusuobi   ottomdu iict"
+                            CategoryDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo c",
+                            CategoryName = "esiadaus ptnuoioimr ",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 9,
-                            CategoryDescription = "Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            CategoryName = "slrtl inlrm esusccnsnimpu oeii"
+                            CategoryDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co",
+                            CategoryName = "nel c t ii mtouutneuUim  eui pemqcm",
+                            UserId = 0
                         },
                         new
                         {
                             CategoryId = 10,
-                            CategoryDescription = "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet  consectetur adipisicing elit sed do eiusmod tempor incididunt ",
-                            CategoryName = "tuo o ad tnaaa o  rdasreplla euelolse uneiutd"
+                            CategoryDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo c",
+                            CategoryName = "fdn   natt asacnpt",
+                            UserId = 0
                         });
                 });
 
@@ -554,9 +572,14 @@ namespace ASPFastApi.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("CommentId");
 
                     b.HasIndex("ArticleId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
 
@@ -564,62 +587,62 @@ namespace ASPFastApi.Migrations
                         new
                         {
                             CommentId = 1,
-                            ArticleId = 38,
-                            Content = "ocrouue idqe nitxmm t q ms  sauqsmmunnd tmtvmtis eotn   iana dinuns d nuuucunrt"
+                            ArticleId = 44,
+                            Content = "o is uu po accu osra  udim io uenrma  cmsndmmt rv i tr o eiea s maur itx  oi miitnainaiu ondoomaoi oa r"
                         },
                         new
                         {
                             CommentId = 2,
-                            ArticleId = 9,
-                            Content = " nUtldorbianqcuemtitq qt ri s ea biUtUm oiec quixeibxae td imtamt xt uax entviaircac   id scn   nm iice iii   a mdxn  iqnpoUmcmieait a"
+                            ArticleId = 15,
+                            Content = "  acqiupqmbmc eabbot  n U  ciui u radmal ut axedtae dc inqs p ianai annilqossmmdsoar U  nscasxneonio  cuamiieUirodurntbinu xissmiaq   osai  catecatinm d"
                         },
                         new
                         {
                             CommentId = 3,
-                            ArticleId = 8,
-                            Content = "luan tgltriil esn  inadtpd manim tqnuegoi Ln"
+                            ArticleId = 42,
+                            Content = " inu oudgdpltat doeqiraegd  cniqieeqaalduu iLrociu aroursbmutrl t is tnieelLaslleu nm e onditdueii  s nelooo eists "
                         },
                         new
                         {
                             CommentId = 4,
-                            ArticleId = 18,
-                            Content = "o ttaerieeel ettisuguaeei ucop"
+                            ArticleId = 29,
+                            Content = "xi ta  a t naa tu mie  ttcoutaurnuaiioionuet oamm oqemd rimiiob qitsmn odaqn o ibicsd iiearitide scnaax Ux tl"
                         },
                         new
                         {
                             CommentId = 5,
-                            ArticleId = 23,
-                            Content = "r uieeiupdt eacesdsuoinlmoiuttttsdmiidopdepnLnaiouenmidroabiut  oelegt   taetgs om tseee no toe m soeel s em atLetuimeusg  ss ridu"
+                            ArticleId = 45,
+                            Content = "einneonibsndi  iainiu utetmnunssetas lttnpunuicuitcltosuqctisn nE ad r "
                         },
                         new
                         {
                             CommentId = 6,
-                            ArticleId = 26,
-                            Content = "ls i  u nioits ammaas aci rumn msiqlx qiorii caxi ttuincmbcm qocdaaaavosebiaqano"
+                            ArticleId = 43,
+                            Content = "tmcouaaooemsomedaa adm omUs dttUraenoeac oincseo  cmut i ommn mmUmeonu c  em mnac eUnqu"
                         },
                         new
                         {
                             CommentId = 7,
-                            ArticleId = 48,
-                            Content = "o emiuaptavn cesq c p lo ait   lbs a n vos  ieibaticsuutiioeieru umaa mmuro ism on nn mo r xrecodqd xtalstn isltia a i o ucxtntqrUd"
+                            ArticleId = 30,
+                            Content = "m lrn avvienlopru lopueuhrccliva vnud ut hmilpverevndurua gosea ovauu rr"
                         },
                         new
                         {
                             CommentId = 8,
-                            ArticleId = 12,
-                            Content = "eeerecesroaolaetlihp  l t ule  geena ialelasrel dt i  ls iuouur e r eutlg rt ieletrvpuam atrlprnfes ostrdoghdolea"
+                            ArticleId = 23,
+                            Content = "riaend ot vosg nuualdsatauriteddds eirhilnld impoDirnstuthiepdadugto iuuce ae  oaritea rluaralaluareumpcvieuoatd ru afgmuiee soslrsa eri  tuviu  "
                         },
                         new
                         {
                             CommentId = 9,
-                            ArticleId = 15,
-                            Content = "sd lxua aimiaqdu  einue ataoeniiidnec sinx"
+                            ArticleId = 35,
+                            Content = "goitno eaatonltgaeotbemc mdrc"
                         },
                         new
                         {
                             CommentId = 10,
-                            ArticleId = 40,
-                            Content = "utemoiqt lbmiomsumencsi a dedoiacunmmu   mtrcoatb ndm tteuu  olo q n sria io iteliancei i"
+                            ArticleId = 30,
+                            Content = "iedutetslt  np sipletoo dealrrvua ue siarttllp ieltceireerveotm fitriuolulvreae aagvveraal o uono uriprruree ieneuiuune u"
                         });
                 });
 
@@ -647,102 +670,102 @@ namespace ASPFastApi.Migrations
                         new
                         {
                             TagId = 1,
-                            Title = "lTbbladslWbdlb"
+                            Title = "lbtess"
                         },
                         new
                         {
                             TagId = 2,
-                            Title = "rd ldTs db"
+                            Title = "b boloblolbW oltT"
                         },
                         new
                         {
                             TagId = 3,
-                            Title = "atasdlbbe"
+                            Title = "tatbWolr eTr"
                         },
                         new
                         {
                             TagId = 4,
-                            Title = "dralbro"
+                            Title = "t Tel"
                         },
                         new
                         {
                             TagId = 5,
-                            Title = "rloatlellaWslalddT"
+                            Title = "esboebrbTsrebdlr"
                         },
                         new
                         {
                             TagId = 6,
-                            Title = "lTa so bbe"
+                            Title = "ooobWab"
                         },
                         new
                         {
                             TagId = 7,
-                            Title = "ol lseb"
+                            Title = "btbadltarWlWlrd"
                         },
                         new
                         {
                             TagId = 8,
-                            Title = "tTdt "
+                            Title = "dWrotar"
                         },
                         new
                         {
                             TagId = 9,
-                            Title = "tbastTs"
+                            Title = "b oobel"
                         },
                         new
                         {
                             TagId = 10,
-                            Title = "bebosWW lbelrrTlbr"
+                            Title = "lsbWardTtTal"
                         },
                         new
                         {
                             TagId = 11,
-                            Title = "lrrostl ld l lWbTdr"
+                            Title = "etb rWTtbabrolr"
                         },
                         new
                         {
                             TagId = 12,
-                            Title = "dldlrr"
+                            Title = "le Wlt a"
                         },
                         new
                         {
                             TagId = 13,
-                            Title = "otdbstlbesebeW"
+                            Title = "ldbleblWottWs lW o"
                         },
                         new
                         {
                             TagId = 14,
-                            Title = "btbdbodbetal"
+                            Title = "lbredoT"
                         },
                         new
                         {
                             TagId = 15,
-                            Title = "aaleal srsoWlllTll"
+                            Title = "dTTbtls"
                         },
                         new
                         {
                             TagId = 16,
-                            Title = "teT e eoabololale"
+                            Title = "blbb dalWstlat s"
                         },
                         new
                         {
                             TagId = 17,
-                            Title = "lWseWrl"
+                            Title = "oralsob"
                         },
                         new
                         {
                             TagId = 18,
-                            Title = "TeabTWedlsoteses sa"
+                            Title = "btlar"
                         },
                         new
                         {
                             TagId = 19,
-                            Title = "lbaWtdatltTerleb"
+                            Title = "aWTebaebbtrTol"
                         },
                         new
                         {
                             TagId = 20,
-                            Title = "lTtbtroWdsrllWl"
+                            Title = "osrtoltdsaoror os"
                         });
                 });
 
@@ -765,6 +788,14 @@ namespace ASPFastApi.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("User");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            Password = "test",
+                            Username = "test"
+                        });
                 });
 
             modelBuilder.Entity("ArticleTag", b =>
@@ -784,261 +815,463 @@ namespace ASPFastApi.Migrations
                     b.HasData(
                         new
                         {
-                            ArticleId = 42,
-                            TagId = 10
-                        },
-                        new
-                        {
-                            ArticleId = 5,
-                            TagId = 12
-                        },
-                        new
-                        {
-                            ArticleId = 1,
-                            TagId = 19
-                        },
-                        new
-                        {
-                            ArticleId = 22,
-                            TagId = 13
-                        },
-                        new
-                        {
                             ArticleId = 9,
-                            TagId = 1
-                        },
-                        new
-                        {
-                            ArticleId = 12,
-                            TagId = 4
-                        },
-                        new
-                        {
-                            ArticleId = 41,
-                            TagId = 20
-                        },
-                        new
-                        {
-                            ArticleId = 42,
-                            TagId = 13
-                        },
-                        new
-                        {
-                            ArticleId = 12,
-                            TagId = 5
-                        },
-                        new
-                        {
-                            ArticleId = 3,
-                            TagId = 9
-                        },
-                        new
-                        {
-                            ArticleId = 50,
-                            TagId = 15
-                        },
-                        new
-                        {
-                            ArticleId = 47,
-                            TagId = 9
-                        },
-                        new
-                        {
-                            ArticleId = 5,
-                            TagId = 4
-                        },
-                        new
-                        {
-                            ArticleId = 42,
-                            TagId = 14
-                        },
-                        new
-                        {
-                            ArticleId = 38,
-                            TagId = 1
-                        },
-                        new
-                        {
-                            ArticleId = 31,
-                            TagId = 5
-                        },
-                        new
-                        {
-                            ArticleId = 2,
-                            TagId = 12
-                        },
-                        new
-                        {
-                            ArticleId = 14,
-                            TagId = 3
-                        },
-                        new
-                        {
-                            ArticleId = 47,
-                            TagId = 3
-                        },
-                        new
-                        {
-                            ArticleId = 12,
                             TagId = 18
                         },
                         new
                         {
-                            ArticleId = 8,
-                            TagId = 13
-                        },
-                        new
-                        {
-                            ArticleId = 36,
-                            TagId = 3
-                        },
-                        new
-                        {
-                            ArticleId = 47,
-                            TagId = 12
-                        },
-                        new
-                        {
-                            ArticleId = 20,
-                            TagId = 13
-                        },
-                        new
-                        {
-                            ArticleId = 27,
-                            TagId = 12
-                        },
-                        new
-                        {
-                            ArticleId = 28,
-                            TagId = 14
-                        },
-                        new
-                        {
-                            ArticleId = 28,
-                            TagId = 3
-                        },
-                        new
-                        {
-                            ArticleId = 31,
-                            TagId = 6
-                        },
-                        new
-                        {
-                            ArticleId = 36,
-                            TagId = 15
-                        },
-                        new
-                        {
-                            ArticleId = 30,
-                            TagId = 20
-                        },
-                        new
-                        {
-                            ArticleId = 12,
-                            TagId = 9
-                        },
-                        new
-                        {
-                            ArticleId = 3,
-                            TagId = 4
-                        },
-                        new
-                        {
-                            ArticleId = 43,
-                            TagId = 16
-                        },
-                        new
-                        {
-                            ArticleId = 27,
-                            TagId = 11
-                        },
-                        new
-                        {
-                            ArticleId = 41,
-                            TagId = 8
-                        },
-                        new
-                        {
-                            ArticleId = 14,
-                            TagId = 7
-                        },
-                        new
-                        {
-                            ArticleId = 7,
-                            TagId = 18
-                        },
-                        new
-                        {
-                            ArticleId = 30,
-                            TagId = 14
-                        },
-                        new
-                        {
-                            ArticleId = 5,
-                            TagId = 20
-                        },
-                        new
-                        {
-                            ArticleId = 29,
-                            TagId = 16
-                        },
-                        new
-                        {
-                            ArticleId = 23,
-                            TagId = 6
-                        },
-                        new
-                        {
-                            ArticleId = 11,
-                            TagId = 6
-                        },
-                        new
-                        {
-                            ArticleId = 1,
-                            TagId = 15
-                        },
-                        new
-                        {
-                            ArticleId = 32,
-                            TagId = 20
-                        },
-                        new
-                        {
-                            ArticleId = 32,
-                            TagId = 8
-                        },
-                        new
-                        {
-                            ArticleId = 31,
-                            TagId = 13
-                        },
-                        new
-                        {
-                            ArticleId = 7,
-                            TagId = 10
-                        },
-                        new
-                        {
-                            ArticleId = 2,
-                            TagId = 11
-                        },
-                        new
-                        {
-                            ArticleId = 47,
+                            ArticleId = 17,
                             TagId = 17
                         },
                         new
                         {
+                            ArticleId = 18,
+                            TagId = 7
+                        },
+                        new
+                        {
+                            ArticleId = 48,
+                            TagId = 3
+                        },
+                        new
+                        {
                             ArticleId = 10,
+                            TagId = 12
+                        },
+                        new
+                        {
+                            ArticleId = 46,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ArticleId = 49,
+                            TagId = 14
+                        },
+                        new
+                        {
+                            ArticleId = 37,
+                            TagId = 10
+                        },
+                        new
+                        {
+                            ArticleId = 18,
+                            TagId = 8
+                        },
+                        new
+                        {
+                            ArticleId = 15,
+                            TagId = 19
+                        },
+                        new
+                        {
+                            ArticleId = 3,
+                            TagId = 14
+                        },
+                        new
+                        {
+                            ArticleId = 40,
+                            TagId = 3
+                        },
+                        new
+                        {
+                            ArticleId = 27,
+                            TagId = 10
+                        },
+                        new
+                        {
+                            ArticleId = 49,
+                            TagId = 13
+                        },
+                        new
+                        {
+                            ArticleId = 38,
+                            TagId = 20
+                        },
+                        new
+                        {
+                            ArticleId = 37,
+                            TagId = 11
+                        },
+                        new
+                        {
+                            ArticleId = 32,
+                            TagId = 18
+                        },
+                        new
+                        {
+                            ArticleId = 40,
+                            TagId = 19
+                        },
+                        new
+                        {
+                            ArticleId = 31,
+                            TagId = 14
+                        },
+                        new
+                        {
+                            ArticleId = 32,
+                            TagId = 4
+                        },
+                        new
+                        {
+                            ArticleId = 20,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ArticleId = 4,
+                            TagId = 7
+                        },
+                        new
+                        {
+                            ArticleId = 9,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ArticleId = 11,
+                            TagId = 16
+                        },
+                        new
+                        {
+                            ArticleId = 27,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ArticleId = 22,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ArticleId = 36,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ArticleId = 44,
+                            TagId = 6
+                        },
+                        new
+                        {
+                            ArticleId = 36,
+                            TagId = 13
+                        },
+                        new
+                        {
+                            ArticleId = 48,
+                            TagId = 13
+                        },
+                        new
+                        {
+                            ArticleId = 48,
+                            TagId = 18
+                        },
+                        new
+                        {
+                            ArticleId = 41,
+                            TagId = 14
+                        },
+                        new
+                        {
+                            ArticleId = 8,
+                            TagId = 14
+                        },
+                        new
+                        {
+                            ArticleId = 39,
+                            TagId = 7
+                        },
+                        new
+                        {
+                            ArticleId = 40,
+                            TagId = 20
+                        },
+                        new
+                        {
+                            ArticleId = 24,
+                            TagId = 6
+                        },
+                        new
+                        {
+                            ArticleId = 46,
+                            TagId = 10
+                        },
+                        new
+                        {
+                            ArticleId = 35,
+                            TagId = 15
+                        },
+                        new
+                        {
+                            ArticleId = 37,
                             TagId = 5
+                        },
+                        new
+                        {
+                            ArticleId = 19,
+                            TagId = 4
+                        },
+                        new
+                        {
+                            ArticleId = 17,
+                            TagId = 3
+                        },
+                        new
+                        {
+                            ArticleId = 9,
+                            TagId = 4
+                        },
+                        new
+                        {
+                            ArticleId = 17,
+                            TagId = 9
+                        },
+                        new
+                        {
+                            ArticleId = 2,
+                            TagId = 15
+                        },
+                        new
+                        {
+                            ArticleId = 16,
+                            TagId = 19
+                        },
+                        new
+                        {
+                            ArticleId = 29,
+                            TagId = 7
+                        },
+                        new
+                        {
+                            ArticleId = 20,
+                            TagId = 12
+                        },
+                        new
+                        {
+                            ArticleId = 6,
+                            TagId = 5
+                        },
+                        new
+                        {
+                            ArticleId = 32,
+                            TagId = 6
+                        },
+                        new
+                        {
+                            ArticleId = 16,
+                            TagId = 13
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("ASPFastApi.Models.Entities.Article", b =>
                 {
                     b.HasOne("ASPFastApi.Models.Entities.Category", "Category")
                         .WithMany("Articles")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASPFastApi.Models.Entities.User", null)
+                        .WithMany("Articles")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Category");
                 });
@@ -1048,6 +1281,10 @@ namespace ASPFastApi.Migrations
                     b.HasOne("ASPFastApi.Models.Entities.Article", "Article")
                         .WithMany("Comments")
                         .HasForeignKey("ArticleId");
+
+                    b.HasOne("ASPFastApi.Models.Entities.User", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Article");
                 });
@@ -1067,6 +1304,57 @@ namespace ASPFastApi.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ASPFastApi.Models.Entities.Article", b =>
                 {
                     b.Navigation("Comments");
@@ -1075,6 +1363,13 @@ namespace ASPFastApi.Migrations
             modelBuilder.Entity("ASPFastApi.Models.Entities.Category", b =>
                 {
                     b.Navigation("Articles");
+                });
+
+            modelBuilder.Entity("ASPFastApi.Models.Entities.User", b =>
+                {
+                    b.Navigation("Articles");
+
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,9 +7,9 @@ public class Endpoint : Endpoint<Request, Response, LoginMapper>
 {
 
 
-    private readonly IAuthService _jwtService;
+    private readonly IAuthServiceOld _jwtService;
 
-    public Endpoint(IAuthService jwtService)
+    public Endpoint(IAuthServiceOld jwtService)
     {
         _jwtService = jwtService;
     }

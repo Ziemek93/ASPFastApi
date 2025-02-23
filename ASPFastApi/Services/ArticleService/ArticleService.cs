@@ -66,9 +66,12 @@ namespace ASPFastApi.Services.ArticleService
         public async Task<ResponseTuple<IEnumerable<ArticleDto>, ResponseEnum>> GetArticlesAsync(Func<Article, ArticleDto> mapper, CancellationToken token = default)
         {
             var result = await _articlerepository.GetArticlesAsync(token);
+            var response = new ResponseTuple<IEnumerable<ArticleDto>, ResponseEnum>();
+
             var mappedResult = result.Select(x => mapper(x));
             var type = typeof(ArticleService).GetProperty("mappedResult");
-            var response = new ResponseTuple<IEnumerable<ArticleDto>, ResponseEnum>(mappedResult, ResponseEnum.Ok);
+            response = response.Make(mappedResult, ResponseEnum.Ok);
+            //new ResponseTuple<IEnumerable<ArticleDto>, ResponseEnum>(mappedResult, ResponseEnum.Ok);
 
             return response;
         }

@@ -16,7 +16,7 @@ public class ArticleRepository : IArticleRepository
 
     public async Task<IEnumerable<Article>> GetArticlesAsync(CancellationToken token)
     {
-        using var context = _context;
+        await using var context = _context.CreateDbContext();
 
         return await context.Articles
             .Include(a => a.Comments)
@@ -26,20 +26,21 @@ public class ArticleRepository : IArticleRepository
 
     public async Task<bool> CategoryExistAsync(int id, CancellationToken token = default)
     {
-        using var context = _context;
+        //using var context = _context;
+        await using var context = _context.CreateDbContext();
         var categoryExists = await context.Categories.Where(c => c.CategoryId == id).AnyAsync();
         return categoryExists;
     }
     public async Task<bool> ArticleExistAsync(Article request, CancellationToken token = default)
     {
-        using var context = _context;
+        await using var context = _context.CreateDbContext();
         var categoryExists = context.Articles.Where(c => c.ArticleId == request.ArticleId).AnyAsync();
         return await categoryExists;
     }
 
     public async Task<int> AddArticleAsync(Article request, CancellationToken token = default)
     {
-        using var context = _context;
+        await using var context = _context.CreateDbContext();
         var response = context.Articles.Add(request);
         var result = await context.SaveChangesAsync(token);
 
@@ -47,7 +48,7 @@ public class ArticleRepository : IArticleRepository
     }
     public async Task<Article?> GetArticleAsync(int id, CancellationToken token = default)
     {
-        using var context = _context;
+        await using var context = _context.CreateDbContext();
         var article = await context.Articles?
             .Where(x => x.ArticleId == id)
             .Include(a => a.Comments)
@@ -136,7 +137,23 @@ public class ArticleRepository : IArticleRepository
         }
     }
 
+    //public async Task Test()
+    //{
+    //    await using var context = _context.CreateDbContext();
+    //    var articleId = 1;
+    //    var t1= (context.Comments.Where(t => 0 == 0).Select(t => "X").FirstOrDefault() ?? "") == "X" ? 1 : 0;
 
+    //    var query = (from k in context.Articles
+    //                 where k.ArticleId == articleId
+    //                 select new
+    //                 {
+    //                     SprTow = (k.UserId ?? ((context.Comments
+    //                                             .Where(t => 0 == 0)
+    //                                             .Select(t => "X")
+    //                                             .FirstOrDefault() ?? "") == "X" ? 1 : 0))
+    //                 }).FirstOrDefault();
+
+    //}
 
 
 }

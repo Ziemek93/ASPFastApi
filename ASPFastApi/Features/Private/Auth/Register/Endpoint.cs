@@ -38,7 +38,7 @@ public class Endpoint : Endpoint<Request, Response, UserMapper>
         //         o.User.Claims.Add(("UserName", req.Username));
         //         o.User["UserId"] = "001"; //indexer based claim setting
         //     });
-        var user = await _context.User.AddAsync(Map.ToEntity(request));// Data.CreateUser(Map.ToEntity(r));
+        //var user = await _context.User.AddAsync(Map.ToEntity(request));// Data.CreateUser(Map.ToEntity(r));
         var result = await _context.SaveChangesAsync();
 
         if (result == 0)

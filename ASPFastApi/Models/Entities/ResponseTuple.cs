@@ -17,7 +17,7 @@
             }
             set
             {
-                if (_response != null)
+                if (_response == null)
                 {
                     _response = value;
                 }
@@ -55,6 +55,7 @@
             SetResponse();
             return this;
         }
+
 
         public ResponseObject<T> SetResponse()
         {

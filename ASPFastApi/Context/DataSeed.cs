@@ -22,6 +22,13 @@ namespace FastApi.Context
 
             //modelBuilder.Entity<Article>().HasMany()
 
+            var users = new User()
+            {
+                UserId = 1,
+                Username = "test",
+                Password = "test"
+            };
+
             var tags = Enumerable.Range(1, 20).Select(i => new Tag
             {
                 TagId = i,
@@ -100,12 +107,14 @@ namespace FastApi.Context
 
 
 
+            var user = modelBuilder.Entity<User>();
             var comment = modelBuilder.Entity<Comment>();
             var article = modelBuilder.Entity<Article>();
             var category = modelBuilder.Entity<Category>();
             var tag = modelBuilder.Entity<Tag>();
 
 
+            user.HasData(users);
             tag.HasData(tags);
             comment.HasData(comments);
             category.HasData(categories);

@@ -9,7 +9,7 @@ namespace FastApi.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
-
+        public ApplicationContext CreateDbContext();
         Task<int> SaveChangesAsync();
 
     }
