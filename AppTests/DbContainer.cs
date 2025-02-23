@@ -1,8 +1,6 @@
-﻿using System.Text.Json;
-using DotNet.Testcontainers.Builders;
+﻿using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
 using FastApi.Context;
-using FastEndpoints.Testing;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,13 +9,13 @@ namespace AppTests;
 
 public class DbContainer
 {
-    
+
     private const string Database = "master";
     private const string Username = "sa";
     private const string Password = "$trongPassword";
     private const ushort MsSqlPort = 1433;
 
-     // private readonly AppFixture<Program> factory;
+    // private readonly AppFixture<Program> factory;
 
 
     // private WebApplicationFactory<Program> _factory;
@@ -46,7 +44,7 @@ public class DbContainer
         var connectionString =
             $"Server={host},{port};Database={Database};User Id={Username};Password={Password};TrustServerCertificate=True";
 
-        
+
         _factory = new WebApplicationFactory<Program>()
             .WithWebHostBuilder(builder =>
             {
@@ -61,23 +59,23 @@ public class DbContainer
         dbContext.Database.Migrate();
 
     }
-    
+
     public async Task OneTimeTearDown()
     {
         await _container.StopAsync();
         await _container.DisposeAsync();
         _factory.Dispose();
     }
-    
+
     public HttpClient MakeQuery()
     {
         var client = _factory.CreateClient();
 
         return client;
-        // var response = await client.GetAsync("/api/Resident/GetAllResidents");
+        // var ResponsResult = await client.GetAsync("/api/Resident/GetAllResidents");
         //
-        // response.EnsureSuccessStatusCode();
-        // var content = await response.Content.ReadAsStringAsync();
+        // ResponsResult.EnsureSuccessStatusCode();
+        // var content = await ResponsResult.Content.ReadAsStringAsync();
         // var allresidentsResponse = JsonSerializer.Deserialize<>(content);
         //
         // allresidentsResponse.Should().NotBeNull();

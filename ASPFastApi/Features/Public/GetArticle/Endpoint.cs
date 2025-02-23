@@ -1,12 +1,11 @@
-﻿using ASPFastApi.Auth;
+﻿using ASPFastApi.Models;
+using ASPFastApi.Models.ArticlesDto;
 using ASPFastApi.Services.ArticleService;
-using FastApi.Context;
 using FastEndpoints;
-using Microsoft.EntityFrameworkCore;
 
 namespace ASPFastApi.Features.Public.GetArticle;
 
-public class Endpoint : EndpointWithoutRequest<Response, ArticleMapper>
+public class Endpoint : EndpointWithoutRequest<ResponseObject<ArticleDto>, ArticleMapper>
 {
     private readonly IArticleService _service;
 
@@ -18,31 +17,24 @@ public class Endpoint : EndpointWithoutRequest<Response, ArticleMapper>
     public override void Configure()
     {
         Get("/api/article/{id}");
-        //  AllowAnonymous();
-        Roles("Admin", "Manager");
-        Claims("Username", "EmployeeID");
-        // AccessControl("Article_Create");
-        // Permissions(Allow.Article_Create);
-
-
-
+        AllowAnonymous();
     }
     public override async Task HandleAsync(CancellationToken ct)
     {
         int articleID = Route<int>("Id");
-        var response = await _service.GetArticle(articleID);
+        var response = await _service.GetArticleAsync(articleID, Map.FromEntity);
 
-        if (response.resInfo != Models.Enums.ResponseEnum.Ok)
+        if (response.responseCode != Models.Enums.ResponseEnum.Ok)
         {
             //throw new BadHttpRequestException("Artykuł nie został dodany");
             //await SendNotFoundAsync(ct);
             //await SendForbiddenAsync(ct);
-            //await SendAsync(resObj, 403, ct);
-            await SendStringAsync(response.ToString(), 403);
+            //await SendAsync(ResultResponse, 403, ct);
+            //await SendStringAsync(ResponsResult.ToString(), 403);
         }
-        var result = Map.FromEntity(response.resObj);
+        //var dto = Map.FromEntity(ResponsResult.resultResponse);
 
-        await SendAsync(result, 200);
+        await SendAsync(response.ResponsResult, (int)response.responseCode);
     }
 
 }

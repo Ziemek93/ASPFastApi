@@ -18,6 +18,7 @@ public class Category
     [Required]
     [StringLength(200)]
     public string CategoryDescription { get; set; }
+    public int UserId { get; set; }
 
     [InverseProperty("Category")]
     public virtual ICollection<Article> Articles { get; set; }

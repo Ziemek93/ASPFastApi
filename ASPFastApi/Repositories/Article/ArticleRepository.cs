@@ -1,9 +1,7 @@
-﻿using FastApi.Context;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-using Add = ASPFastApi.Features.Public.AddArticle;
-using Get = ASPFastApi.Features.Public.GetArticles;
+﻿using ASPFastApi.Models.ArticlesDao;
 using ASPFastApi.Models.Entities;
+using FastApi.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASPFastApi.Repositories.Articles;
 
@@ -16,9 +14,9 @@ public class ArticleRepository : IArticleRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Article>> GetArticles(CancellationToken token)
+    public async Task<IEnumerable<Article>> GetArticlesAsync(CancellationToken token)
     {
-        using var context = _context;
+        await using var context = _context.CreateDbContext();
 
         return await context.Articles
             .Include(a => a.Comments)
@@ -26,56 +24,136 @@ public class ArticleRepository : IArticleRepository
             .ToListAsync(token); //GetArticles(context);
     }
 
-    public async Task<bool> CategoryExist(Article request, CancellationToken token = default)
+    public async Task<bool> CategoryExistAsync(int id, CancellationToken token = default)
     {
-        using var context = _context;
-        var categoryExists = await context.Categories.Where(c => c.CategoryId == request.CategoryId).AnyAsync();
+        //using var context = _context;
+        await using var context = _context.CreateDbContext();
+        var categoryExists = await context.Categories.Where(c => c.CategoryId == id).AnyAsync();
         return categoryExists;
     }
-    public async Task<bool> ArticleExist(Article request, CancellationToken token = default)
+    public async Task<bool> ArticleExistAsync(Article request, CancellationToken token = default)
     {
-        using var context = _context;
+        await using var context = _context.CreateDbContext();
         var categoryExists = context.Articles.Where(c => c.ArticleId == request.ArticleId).AnyAsync();
         return await categoryExists;
     }
 
-    public async Task<int> AddArticle (Article request, CancellationToken token = default)
+    public async Task<int> AddArticleAsync(Article request, CancellationToken token = default)
     {
-        using var context = _context;
+        await using var context = _context.CreateDbContext();
         var response = context.Articles.Add(request);
         var result = await context.SaveChangesAsync(token);
 
         return result;
     }
-    public async Task<Article?> GetArticle(int id, CancellationToken token = default)
+    public async Task<Article?> GetArticleAsync(int id, CancellationToken token = default)
     {
-        using var context = _context;
-        var article = await context.Articles.Where(x=>x.ArticleId == id).FirstOrDefaultAsync();
+        await using var context = _context.CreateDbContext();
+        var article = await context.Articles?
+            .Where(x => x.ArticleId == id)
+            .Include(a => a.Comments)
+            .Include(a => a.Tags)
+            .FirstOrDefaultAsync(cancellationToken: token);
         return article;
 
     }
-    public async Task<bool> EditArticle(Article request, CancellationToken token = default)
+
+    private async Task<IEnumerable<Tag>> InsertTagsAsync(List<string> tagsTitles, ApplicationContext context, CancellationToken token = default)
     {
-        using var context = _context;
-        var entity = await context.Articles
-            .Where(x => x.ArticleId == request.ArticleId)
-            .FirstOrDefaultAsync();
-        if(entity == null)
         {
-            return false;
-        }
-        entity.ArticleName = request.ArticleName;
-        entity.ArticleDescription = request.ArticleDescription;
-        entity.Tags = request.Tags; // entity.Tags.Union(request.Tags).ToList();
+            List<string> toRemove = new List<string>();
 
-        var result = await context.SaveChangesAsync(token);
+            foreach (var tag in tagsTitles)
+            {
+                var result = await context.Tags.Where(x => x.Title == tag).FirstOrDefaultAsync(token);
+                if (result != null)
+                {
+                    toRemove.Add(tag);
+                }
 
-        return result != 0;
+            }
+            foreach (var title in toRemove)
+            {
+                tagsTitles.Remove(title);
+            }
+            if (tagsTitles.Count() > 0)
+            {
+                IEnumerable<Tag> tags = tagsTitles.Select(x => new Tag
+                {
+                    Title = x,
+                });
+                //context.Tags.AddRange(tags);//.ToList();
+                //var ResponsResult = await context.SaveChangesAsync(token);
 
+                return tags;
 
+            }
+            return null;
+        };
+    }
+    public async Task<bool> EditArticleAsync(int id, ArticleDao req, CancellationToken token = default)
+    {
 
+        using (var context = _context)
+        {
+            var tags = await InsertTagsAsync(req.Tags, _context, token);
+
+            var entity = await context.Articles
+                .Where(x => x.ArticleId == id)
+                .FirstOrDefaultAsync();
+            if (entity == null)
+            {
+                return false;
+            }
+            entity.ArticleName = req.ArticleName;
+            entity.ArticleDescription = req.ArticleDescription;
+            entity.Tags = tags.ToList();
+
+            var result = await context.SaveChangesAsync(token);
+
+            return result != 0;
+
+        };
     }
 
+    public async Task<bool> DeleteArticleAsync(int id, CancellationToken token = default)
+    {
+        using (var context = _context)
+        {
+            var article = await context.Articles?
+            .Where(x => x.ArticleId == id)
+            .Include(a => a.Comments)
+            .FirstOrDefaultAsync(cancellationToken: token);
+            if (article == null)
+            {
+                return false;
+            }
+            var result = _context.Articles.Remove(article);
+            if (result != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+
+    //public async Task Test()
+    //{
+    //    await using var context = _context.CreateDbContext();
+    //    var articleId = 1;
+    //    var t1= (context.Comments.Where(t => 0 == 0).Select(t => "X").FirstOrDefault() ?? "") == "X" ? 1 : 0;
+
+    //    var query = (from k in context.Articles
+    //                 where k.ArticleId == articleId
+    //                 select new
+    //                 {
+    //                     SprTow = (k.UserId ?? ((context.Comments
+    //                                             .Where(t => 0 == 0)
+    //                                             .Select(t => "X")
+    //                                             .FirstOrDefault() ?? "") == "X" ? 1 : 0))
+    //                 }).FirstOrDefault();
+
+    //}
 
 
 }

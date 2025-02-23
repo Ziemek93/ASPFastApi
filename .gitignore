@@ -386,3 +386,5 @@ ASPFastApi/bin/
 ASPFastApi/obj/
 
 .idea/
+
+ASPFastApi/appsettings.json

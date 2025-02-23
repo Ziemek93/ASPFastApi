@@ -1,11 +1,3 @@
-using System.Net;
-using AutoFixture;
-using FastEndpoints;
-using FastEndpoints.Testing;
-using FluentAssertions;
-using Xunit.Priority;
-using GetArticles = ASPFastApi.Features.Public.GetArticles;
-using AddArticle = ASPFastApi.Features.Public.AddArticle;
 namespace AppTests
 {
     // public class ArticleTests(App app) : IFixture<App>
