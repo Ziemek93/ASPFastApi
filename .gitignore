@@ -385,6 +385,8 @@ ASPFastApi/bin/
 
 ASPFastApi/obj/
 
+**/obj/
+
 .idea/
 
 ASPFastApi/appsettings.json
